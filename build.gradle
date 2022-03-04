@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+group 'io.hysekai.game'
+version '1.0.0'
+archivesBaseName = 'squidgame'
+
+sourceCompatibility = 1.17
+targetCompatibility = 1.17
+
+compileJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
+setLibsDirName("C:\\Users\\rayane\\Documents\\Minecraft\\server\\plugins")
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven {
+        url 'https://repo.citizensnpcs.co/'
+    }
+
+    maven {
+        url 'https://repo.hysekai.io/repository/hysekai-restricted'
+    }
+
+    flatDir{
+        dir 'libs'
+    }
+}
+
+dependencies {
+    compileOnly name: 'spigot-1.8.8'
+    compileOnly name: 'hysekai-bukkit'
+    compileOnly name: 'HysekaiSchematic'
+    compileOnly 'net.citizensnpcs:citizens-main:2.0.28-SNAPSHOT'
+}
